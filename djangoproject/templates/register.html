@@ -1,29 +1,46 @@
 {% extends 'base.html' %}
-{% block title %}Sign Up{% endblock %}
+{% block title %}Sign Up - To Do App{% endblock %}
 
 {% block content %}
-
-
 <div class="task-form-container">
     <h2>Sign Up</h2>
 
     <form method="post" action="">
         {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <div class="input-group">
+            <label for="username">Username <i class="fas fa-user"></i></label>
+            <input type="text" id="username" name="username" required>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <div class="input-group">
+            <label for="email">Email <i class="fas fa-envelope"></i></label>
+            <input type="email" id="email" name="email" required>
+        </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <div class="input-group">
+            <label for="password">Password <i class="fas fa-lock"></i></label>
+            <input type="password" id="password" name="password" required>
+        </div>
 
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" required>
+        <div class="input-group">
+            <label for="confirm_password">Confirm Password <i class="fas fa-lock"></i></label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit">
+            <i class="fas fa-user-plus"></i> Sign Up
+        </button>
     </form>
 
-    <a href="{% url 'home' %}" class="back-link">← Back to Home</a>
+    <div class="auth-links">
+        <p class="register-prompt">Already have an account?</p>
+        <a href="{% url 'login' %}" class="register-link">
+            <i class="fas fa-sign-in-alt"></i> Log In
+        </a>
+    </div>
 
+    <a href="{% url 'home' %}" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+</div>
 {% endblock %}
